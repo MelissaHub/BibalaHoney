@@ -8,6 +8,7 @@ const React = require('react')
           return (
                   <div>
                       <h1>Welcome to the Cafe</h1>
+                      
                       <ul>
                           {honey.map((pastry, i) => {
                             //map is an array method and goes through each to do what you want to each

@@ -1,7 +1,7 @@
 # BibalaHoney
 
 ----------
-My intentions was to make a story choice game where the user has to haggle items for parts to their robot. In recording the users choices at the end with a final score between 1-100 it'll determine if you got enough parts strong enough to beat the random output opponet. I followed Web Dev simplified to get the skeletal references on how to set up the story mode.
+Honey Pastry Store
 
 ----------
 
@@ -28,6 +28,7 @@ My intentions was to make a story choice game where the user has to haggle items
 - npm i dotenv
 - npm install express-react-views react@16 react-dom@16 --save
 - npm i method-override
+- npm i mongoose
 
 
 ----------
@@ -53,9 +54,29 @@ My intentions was to make a story choice game where the user has to haggle items
 
 7. require('dotenv').config()
 
-8. in terminal type nodemon to test,  in internet browser type localhost:3000/ OR ctrl click the localhost in terminal
+8. app.use(express.urlencoded({ extended: true }));
 
-9. type: const Honey = require('./model/honey.js') to connect your model/js to ther server
+9. app.use(methodOverride('_method'))
+
+10. in terminal type nodemon to test,  in internet browser type localhost:3000/ OR ctrl click the localhost in terminal
+
+11. type: const Honey = require('./model/honey.js') to connect your model/js to ther server
+
+12. app.get('/biba', (req, res) => { 
+    -res.render('Index', {honey: honey})
+  - })
+
+13. app.get('/biba/new', function (req,res){ 
+    //form to create a new pokemon
+    res.render('New') (to make a new pastry)
+- })
+
+14. app.get('/biba/:id', function(req, res){
+   
+    }) (to delete and destroy)
+
+
+
 
 
 
@@ -73,6 +94,35 @@ Reference videos and websites:
 - (How to overlap divs) https://css-tricks.com/how-to-stack-elements-in-css/
 
 I tried multiple things to simply get them to sit on top of eachother
+
+
+### Mongoose
+
+- MongoDB
+- Create new project (free)'
+- New Cluster name
+- Username and pasword for database
+- scroll down for current IP address > confirm
+- side bar left> Network Access> EDIT> allow acces fron anywhere > confirm
+- Atlas>Connect>Connect your Application
+- Copy and paste the code into your .env
+- replace '<password>' in mongoose .env code with password you created
+- npm i mongoose in Terminal
+-  Type in server top: 
+- const mongoose = require('mongoose')
+- mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+- mongoose.connection.once('open', ()=> {
+-    console.log('connected to mongo')
+- })
+- In Honey.js(model) at top type: const mongoose = require('mongoose')
+
+### Heroku
+- Add to Package.json below versions: 
+  "engines": {
+    "node": "14.17.0"
+  },
+
+
 
 
 ### JavaScript
