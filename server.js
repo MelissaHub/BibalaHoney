@@ -12,20 +12,37 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo')
 })
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
 
 const pastryData = require('./utilities/pastryData')
 //this is seed route!
 
-const Honey = require('./model/honey.js')
+const Pastry = require('./model/honey.js')
 
 
 
 app.get('/biba', (req, res) => { 
     //list of all things in index
     //each get reps a new page
-    res.render('Index')
-    //{honey: honey}
+    Pastry.find({},(error,allPastry) => {
+        //.find is to find all the empty objects, if non return param error
+        res.render('Index',{honey: allPastry})
+        //render index view but pass allPastry empty objects now called honey
+
+    } )
+
 })
+
+app.get('/biba/seed', (req,res) => {
+    //to post already make pastrydata?
+    //if anything in there, delete, also wait til is finished to do so
+    // await Pastry.deleteMany({})
+     Pastry.create(pastryData)
+    // await Honey.deleteMany({name: /saur/})
+    res.redirect('/biba')
+    //create list of pastry in database
+ })
 
 
 app.get('/biba/new', function (req,res){ 
@@ -47,8 +64,11 @@ app.get('/biba/:id', function(req, res){
 
 app.delete('/biba/:id', function(req, res){
     //to delete indiviual pastry
-    
-    // Honey.findById(req.params.id,(error,foundDesserts) => {
+
+    //honey is calling the datatbase schema?
+    Honey.findByIdAndRemove(req.params.id, (err,data) => { 
+        res.redirect('/biba')
+    })
 
     //     res.render('Show', {
     //         honey: foundDesserts
@@ -64,6 +84,19 @@ app.post('/biba/:id/edit', function(req, res){
         //to update the information from SHOW page id
         //editing a posted from from show page
         //EDIT.JSX
+        Honey.findById(req.params.id, ( error, foundPastry) => { 
+
+            if(!error){
+            res.render('Edit', { 
+                pokemon: foundPastry
+            })
+        }
+        else ( 
+            res.send({ 
+                message: errorMessage
+            })
+        )
+        })
     })
 
 
