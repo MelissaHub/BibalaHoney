@@ -19,7 +19,7 @@ const myStyle = {
 
                       <p> This is what is in your Dessert</p>
 
-                      <a href = "/biba/new">Create a Pokemon</a><br/>
+                      <a href = "/biba/new">Create a Pastry</a><br/>
                       <a href = "/biba">BACK</a>
 
                   </div>

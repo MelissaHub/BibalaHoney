@@ -62,7 +62,7 @@ app.get('/biba/new', function (req,res){
 
 
 app.get('/biba/:id/edit', function(req, res){
-
+    //get to pull up infomation already there
     //to update the information from SHOW page id
     //editing a posted from from show page
     //EDIT.JSX
@@ -82,11 +82,11 @@ app.get('/biba/:id/edit', function(req, res){
 })
 
 app.put('/biba/:id', (req, res) => {
-    //put updates and corects the id. METHOD OVERRIDE
+    //put updates and corrects the infomation. METHOD OVERWRITE
     Pastry.findByIdAndUpdate(req.params.id, req.body, {
         new: true
     }, (error, pastry) => {
-        res.redirect(`/biba/${req.params.id}`)
+        res.redirect(`/biba/${req.params.id}`)//send to show page /biba/id
     })
 })
 
