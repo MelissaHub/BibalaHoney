@@ -33,8 +33,16 @@ app.get('/biba', (req, res) => {
     } )
 
 })
+app.post('/biba', (req, res) => { 
+    //req (request)- req.body is whatever is in the form res(response) res.post is to post it
+
+    Pastry.create(req.body, (error,createdPastry) =>{
+        res.redirect('/biba')
+    })
+})
 
 app.get('/biba/seed', (req,res) => {
+    //COMMENT OUT SEED LATER
     //to post already make pastrydata?
     //if anything in there, delete, also wait til is finished to do so
     // await Pastry.deleteMany({})
@@ -52,6 +60,37 @@ app.get('/biba/new', function (req,res){
     res.render('New')
 })
 
+
+app.get('/biba/:id/edit', function(req, res){
+
+    //to update the information from SHOW page id
+    //editing a posted from from show page
+    //EDIT.JSX
+    Pastry.findById(req.params.id, (error, foundPastry) => { 
+
+        if(!error){
+        res.render('Edit', { 
+            honey: foundPastry
+        })
+    }
+    else ( 
+        res.send({ 
+            message: errorMessage
+        })
+    )
+    })
+})
+
+app.put('/biba/:id', (req, res) => {
+    //put updates and corects the id. METHOD OVERRIDE
+    Pastry.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    }, (error, pastry) => {
+        res.redirect(`/biba/${req.params.id}`)
+    })
+})
+
+
 app.get('/biba/:id', function(req, res){
     //id is list of each thing in list
     //all things about indiviual product
@@ -59,6 +98,13 @@ app.get('/biba/:id', function(req, res){
     //to get the userinput form
     //used with the put
     //SHOW PAGE
+    Pastry.findById(req.params.id,(error,foundPastry) => {
+
+        res.render('Show', {
+            honey: foundPastry
+        })
+    })
+    
 
 })
 
@@ -66,7 +112,7 @@ app.delete('/biba/:id', function(req, res){
     //to delete indiviual pastry
 
     //honey is calling the datatbase schema?
-    Honey.findByIdAndRemove(req.params.id, (err,data) => { 
+    Pastry.findByIdAndRemove(req.params.id, (err,data) => { 
         res.redirect('/biba')
     })
 
@@ -79,25 +125,7 @@ app.delete('/biba/:id', function(req, res){
     //calling Show.jsx
     //render prints them
 
-app.post('/biba/:id/edit', function(req, res){
 
-        //to update the information from SHOW page id
-        //editing a posted from from show page
-        //EDIT.JSX
-        Honey.findById(req.params.id, ( error, foundPastry) => { 
-
-            if(!error){
-            res.render('Edit', { 
-                pokemon: foundPastry
-            })
-        }
-        else ( 
-            res.send({ 
-                message: errorMessage
-            })
-        )
-        })
-    })
 
 
 

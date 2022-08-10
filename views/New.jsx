@@ -6,16 +6,17 @@ class New extends React.Component {
         <div>
             <h1>Make a Pastry</h1>
           
-            <form action="/pokemon" method="POST">
+            <form action="/biba" method="POST">
               Name: <input type="text" name="name" /><br/>
-              {/* Color: <input type="text" name="color" /><br/> */}
+              Price: <input type="text" name="price" /><br/>
+              Recipie: <input type="text" name="text" /><br/>
+              Image: <input type="text" name="image" /><br/>
               <input type="submit" name="" value="Create Pastry"/>
             </form>
                              <nav>
-                              <a href="/pokemon">Home</a>
+                              <a href="/biba">Home</a>
                               </nav>
-        </div>)
-    }
+        </div>)}
   }
 module.exports = New
 //create new page
