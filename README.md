@@ -117,6 +117,11 @@ I tried multiple things to simply get them to sit on top of eachother
 - In Honey.js(model) at top type: const mongoose = require('mongoose')
 
 ### Heroku
+- So app can work aestheiclly 
+- node -v
+- make sure heroku is installed
+- heroku  create (name)
+- update in package. json of latest node
 - Add to Package.json below versions: 
   "engines": {
     "node": "14.17.0"
