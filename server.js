@@ -15,7 +15,7 @@ mongoose.connection.once('open', ()=> {
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
-const pastryData = require('./utilities/pastryData.js')
+const pastryData = require('./utilities/pastrydata.js')
 //this is seed route!
 
 const Pastry = require('./model/honey.js')
