@@ -121,6 +121,11 @@ I tried multiple things to simply get them to sit on top of eachother
 - node -v
 - make sure heroku is installed
 - heroku  create (name)
+- remote - v
+- git add .
+- git commit
+- git push heroku main
+- settings > reveal > key = MONGO URI, URL info in .env
 - update in package. json of latest node
 - Add to Package.json below versions: 
   "engines": {
