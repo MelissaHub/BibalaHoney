@@ -5,19 +5,18 @@ require('dotenv').config()
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
+//this acess public
+
 // app.use(methodOverride('_method'))
 const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO_URI || 'mongo://localhost:3003/biba', { useNewUrlParser: true })
         .then(connect => console.log('connected to mongo..'))
         .catch(e => console.log('could not connect to mongo', e))
 
+        const methodOverride = require('method-override')
 
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-// //if mongoose error delete if depreciation error useNewUrlParser: true, useUnifiedTopology: true
-// mongoose.connection.once('open', ()=> {
-//     console.log('connected to mongo')
-// })
-const methodOverride = require('method-override')
+
 app.use(methodOverride('_method'))
 
 const pastryData = require('./utilities/pastrydata.js')

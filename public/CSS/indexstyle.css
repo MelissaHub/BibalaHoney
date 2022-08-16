@@ -1,0 +1,84 @@
+
+body{ 
+    margin: 0;
+    height: 100%;
+    background-color: rgb(179, 157, 61);
+
+}
+.title{ 
+
+    height: 10vh;
+    margin-left:5vw;
+    margin-top: 5vh;
+    border-radius: 10px;
+    width: 40vw;
+    border: 1px solid black;
+
+}
+
+.bee{ 
+    position: absolute;
+    margin-top: 5vh;
+    margin-left:5vw;
+    right: 12vw;
+    border-radius: 10px;
+    width: 40vw;
+    height: 30vh;
+    border: 1px solid black;
+}
+
+.pastry{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* sets to row */
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 4vh 2vw;
+    /* viewport width */
+    width: 35vw;
+    height: 3vh;
+    background-color: brown;
+    color: white;
+    margin: 1vh 0 0 0;
+
+}
+
+.list{ 
+    margin-top: 5vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-left:5vw;
+    min-height: 70vh;
+    width:40vw;
+    background-color: rgb(107, 32, 32);
+    border-radius: 10px;
+}
+
+.name{ 
+    width: 18vw;
+}
+
+.button{ 
+    text-decoration: none;
+    color: white;
+}
+.create{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    border-radius: 10px;
+    background-color: brown;
+    position: absolute;
+    top: 81vh;
+    /* how much goes down starting from top */
+    right: 15vw;
+    /* how much over starting from right */
+    color: white;
+    height: 3vh;
+    padding: 4vh 2vw;
+    font-size: 20px;
+}

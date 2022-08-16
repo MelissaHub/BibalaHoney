@@ -8,6 +8,7 @@ const pastrySchema = new mongoose.Schema({
     name: { type: String, required: true},
     price:{type: Number, required: true},
     text:{type: String, required: true},
+    total:{type: Number, required: true},
     img:{type: String, required: false},
 })
 

@@ -75,6 +75,9 @@ Honey Pastry Store
    
     }) (to delete and destroy)
 
+15. app.use(express.static('public'))
+
+
 
 
 
@@ -110,10 +113,12 @@ I tried multiple things to simply get them to sit on top of eachother
 - npm i mongoose in Terminal
 -  Type in server top: 
 - const mongoose = require('mongoose')
-- mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-- mongoose.connection.once('open', ()=> {
--    console.log('connected to mongo')
-- })
+- mongoose.connect(process.env.MONGO_URI || 'mongo://localhost:3003/biba', { useNewUrlParser: true })
+        .then(connect => console.log('connected to mongo..'))
+        .catch(e => console.log('could not connect to mongo', e))
+
+        const methodOverride = require('method-override')
+
 - In Honey.js(model) at top type: const mongoose = require('mongoose')
 
 ### Heroku
