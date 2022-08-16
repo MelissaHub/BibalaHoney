@@ -128,11 +128,11 @@ I tried multiple things to simply get them to sit on top of eachother
 ### Heroku
 - So app can work aestheiclly 
 - node -v
-- make sure heroku is installed
+- make sure heroku is installed ( in terminal: npm i heroku)
 - heroku  create (name)
-- remote - v
+- git remote - v
 - git add .
-- git commit
+- git commit -m "note"
 - git push heroku main
 - settings > reveal > key = MONGO URI, URL info in .env
 - update in package. json of latest node
@@ -140,6 +140,12 @@ I tried multiple things to simply get them to sit on top of eachother
   "engines": {
     "node": "14.17.0"
   },
+
+#### Heroku.com
+- Got to Heroku.com
+- (click name made) > settings > Reveal Config Vars >
+- MONGO URI (KEY)
+- (link ONLY from MONGODB) (VALUE)
 
 
 

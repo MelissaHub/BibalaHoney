@@ -19,7 +19,7 @@ const React = require('react')
             <div className ='parent'>
                       {/* <h1>Welcome to the Cafe</h1>
                        */}
-                       <div className = 'title'> Title</div>
+                       <div className = 'title'></div>
                       <div className = 'list'>
                           {honey.map((pastry) => {
                             //map is an array method and goes through each to do what you want to each
@@ -40,7 +40,7 @@ const React = require('react')
                               )
               
                           })}
-                                                  <div className = 'bee'> bee</div>
+                                                  <div className = 'bee'> </div>
                       </div><br/>
                       <a href="/biba/new"><button className = 'create'>Create Pastry</button></a>
 

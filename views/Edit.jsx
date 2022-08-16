@@ -22,7 +22,7 @@ class Edit extends React.Component {
               Price: <input value={honey.price} type="text" name="price" /><br/>
               Recipie: <input value={honey.text} type="text" name="text" /><br/>
               Amount: <input value={honey.total} type="number" name="total" /><br/>
-              Image: <input value={honey.img} type="text" name="image" /><br/>
+              Image: <input value={honey.img} type="text" name="img" /><br/>
               <input className ='input' type="submit" name="" value="Update"/>
             </form>
                              <nav>
@@ -37,3 +37,4 @@ module.exports = Edit
 //create new page
 //study why update goes to show
 //prepoulated value
+//img = img name
