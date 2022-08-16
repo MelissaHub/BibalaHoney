@@ -26,7 +26,7 @@ const myStyle = {
                         <div className ='body'>
                                     <div className ='left'>                                         
                                                           <h1>Let's eat {honey.name}!</h1>
-                                                            <img src={honey.img}></img><br/>
+                                                            <img src={honey.img} ></img><br/>
                                                             
                                     </div>
 

@@ -4,7 +4,8 @@ body{
     align-items: center;
     margin: 0;
     height: 99vh;
-    background-color: rgb(179, 157, 61);
+    background-color: rgb(238, 228, 171);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 .parent{ 
@@ -15,8 +16,10 @@ body{
     padding: 4vw;
     background-color: brown;
     border-radius: 10px;
-    color:antiquewhite;
+    color:rgb(117, 105, 83);
     width:30%;
+    background-image:url('../images/bg.jpg');
+    background-size: cover;
 
 }
 form{ 

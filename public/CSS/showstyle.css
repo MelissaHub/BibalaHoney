@@ -1,7 +1,7 @@
 body{ 
     margin: 0;
     height: 100%;
-    background-color: rgb(179, 157, 61);
+    background-color: rgb(238, 228, 171);
 
 }
 .body{ 
@@ -9,6 +9,8 @@ body{
     justify-content: column;
     align-items: center;
     height: 99vh;
+    color:rgb(117, 105, 83);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .left{ 

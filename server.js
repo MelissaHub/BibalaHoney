@@ -14,9 +14,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongo://localhost:3003/biba', { useNe
         .then(connect => console.log('connected to mongo..'))
         .catch(e => console.log('could not connect to mongo', e))
 
-        const methodOverride = require('method-override')
-
-
+const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
 const pastryData = require('./utilities/pastrydata.js')

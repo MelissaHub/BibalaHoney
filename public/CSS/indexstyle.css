@@ -2,7 +2,14 @@
 body{ 
     margin: 0;
     height: 100%;
-    background-color: rgb(179, 157, 61);
+    background-color: rgb(238, 228, 171);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.parent{ 
+    background-image:url('../images/bg.jpg');
+    background-size: cover;
 
 }
 .title{ 
@@ -12,7 +19,10 @@ body{
     margin-top: 5vh;
     border-radius: 10px;
     width: 40vw;
-    border: 1px solid black;
+    height:15vh;
+    background-image:url('../images/title.png');
+    background-size: cover;
+    /* border: 1px solid black; */
 
 }
 
@@ -20,11 +30,11 @@ body{
     position: absolute;
     margin-top: 5vh;
     margin-left:5vw;
-    right: 12vw;
+    right: 10vw;
     border-radius: 10px;
     width: 40vw;
-    height: 30vh;
-    border: 1px solid black;
+    height: vh;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .pastry{
@@ -32,15 +42,17 @@ body{
     justify-content: space-evenly;
     align-items: center;
     /* sets to row */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
     padding: 4vh 2vw;
     /* viewport width */
     width: 35vw;
     height: 3vh;
-    background-color: brown;
+    background-color: rgb(229, 203, 159);
     color: white;
     margin: 1vh 0 0 0;
+    background-image:url('../images/bar.jpg');
+    background-size: cover;
 
 }
 
@@ -53,7 +65,8 @@ body{
     margin-left:5vw;
     min-height: 70vh;
     width:40vw;
-    background-color: rgb(107, 32, 32);
+    border: 20px solid rgb(255, 255, 255);
+    background-color:rgb(153, 196, 200);
     border-radius: 10px;
 }
 
@@ -64,6 +77,7 @@ body{
 .button{ 
     text-decoration: none;
     color: white;
+    font-size:22px;
 }
 .create{ 
     display: flex;
@@ -71,8 +85,9 @@ body{
     align-items: center;
     width: 35vw;
     border-radius: 10px;
-    background-color: brown;
+    background-color:rgb(153, 196, 200);
     position: absolute;
+
     top: 81vh;
     /* how much goes down starting from top */
     right: 15vw;
@@ -80,5 +95,7 @@ body{
     color: white;
     height: 3vh;
     padding: 4vh 2vw;
-    font-size: 20px;
+    font-size: 30px;
+
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

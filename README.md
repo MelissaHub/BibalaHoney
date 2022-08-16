@@ -6,6 +6,10 @@ Honey Pastry Store
 ----------
 
 ## Getting started / Prerequistes
+
+### Assets
+- Honecomb bg (https://design.tutsplus.com/tutorials/create-a-sweet-honeycomb-pattern-in-adobe-illustrator--cms-20656)
+
 ----------
 
 ### Create these files and folders
