@@ -1,7 +1,7 @@
 # BibalaHoney
 
 ----------
-This is a sweetss store fan by a bubbly honey bee named Biba! She is super friendly and loves to cook! In her store you can help her with the recipies and even help her sell things.
+This is a sweets store ran by a bubbly honey bee named Biba! She is super friendly and loves to cook! In her store you can help her with the recipies and even help her sell things.
 
 ----------
 
@@ -259,3 +259,9 @@ const pastryData = [
 ## Goals / Lessons / Thank Yous~
 ---------
 This project was very difficult, but now knowing that I'm capable to have a functioning website from scratch is a skill I never thought I would ever be. The goal is to touch up the format, art, and stylize the buttons. Also I aim to simply organize the syntax and find a way to make the process as simple as it gets. All in all, I've learned pacitence and comradery. I'm so greatful to have such a friendly class and intuitive professor and assistant. Excited for more to learn.
+
+## Youtube Video
+https://youtu.be/CeTUru4ujbE
+
+## Heroku Link
+https://bibalahoney.herokuapp.com/biba
