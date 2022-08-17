@@ -1,15 +1,27 @@
 # BibalaHoney
 
 ----------
-Honey Pastry Store
+This is a sweetss store fan by a bubbly honey bee named Biba! She is super friendly and loves to cook! In her store you can help her with the recipies and even help her sell things.
 
 ----------
 
 ## Getting started / Prerequistes
 
 ### Assets
-- Honecomb bg (https://design.tutsplus.com/tutorials/create-a-sweet-honeycomb-pattern-in-adobe-illustrator--cms-20656)
+-![](public/images/bg.jpg)
+-![](public/images/bee.png)
+-![](public/images/bar.jpg)
+-![](public/images/title.png)
 
+### Spcial link inserts (pastrydatautilites)
+
+
+- https://64.media.tumblr.com/074e8ff016883193ffe263b60eb801d1/tumblr_ncq0rwdjLx1snc5kxo1_500.gifv
+
+- https://i.pinimg.com/originals/3e/53/b8/3e53b85ec1dfc96bc7e9dba3453ccd4b.gif
+
+- https://i.pinimg.com/originals/b1/65/60/b165600641ee446246745a9316ff7f1f.gif
+- https://thumbs.gfycat.com/IncomparableOrangeAlbertosaurus-size_restricted.gif
 ----------
 
 ### Create these files and folders
@@ -23,6 +35,11 @@ Honey Pastry Store
    -- Show.jsx
 - (folder) model (for js/ schemas)
     --honey.js
+- (folder) public > (folder)CSS > (folder) images
+  --(CSS) indexstyle.css , newstyle.css, showstyle.css ( to connect to views)
+
+- (folder) utilities
+  --pastrydata.js (seed fill array)
 
 
 ### Instals in the Node terminals
@@ -40,7 +57,8 @@ Honey Pastry Store
 ## Installing / Attempts / bugs
 ------
 ### .env
--type: PORT=3000
+
+- type: PORT=3000
 
 ### Server.js starter
 1. type: const express = require('express')
@@ -89,18 +107,7 @@ Honey Pastry Store
 
 ### Index.jsx
 
--many isues insued where I tried to make flex, grid both and neither in css along with the set concept of the text container itself. I did so much reserch on how to overlap everything to get this output:
 
-![Reference 1](ref1.jpg)
-
-Reference videos and websites: 
-
-- (Overlapping CSS grid)  https://www.youtube.com/watch?v=HFG3BKOqOlE
-- (Guide to grid) https://css-tricks.com/snippets/css/complete-guide-grid/
-- (Guide to flexbox) https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-- (How to overlap divs) https://css-tricks.com/how-to-stack-elements-in-css/
-
-I tried multiple things to simply get them to sit on top of eachother
 
 
 ### Mongoose
@@ -130,31 +137,125 @@ I tried multiple things to simply get them to sit on top of eachother
 - node -v
 - make sure heroku is installed ( in terminal: npm i heroku)
 - heroku  create (name)
-- git remote - v
-- git add .
-- git commit -m "note"
-- git push heroku main
 - settings > reveal > key = MONGO URI, URL info in .env
 - update in package. json of latest node
 - Add to Package.json below versions: 
   "engines": {
     "node": "14.17.0"
   },
+- git remote - v
+- git add .
+- git commit -m "note"
+- git push heroku main
 
 #### Heroku.com
 - Got to Heroku.com
 - (click name made) > settings > Reveal Config Vars >
 - MONGO URI (KEY)
 - (link ONLY from MONGODB) (VALUE)
+- (add, commit, push again just in case)
 
 
 
 
-### JavaScript
+### server.js
+Below installions on server.js
+- const pastryData = require('./utilities/pastrydata.js')
+- const Pastry = require('./model/honey.js')
 
-Sadly I never even got the text to translate to the html even though it's linked properly. Somehow lines 1, 19, 20 and 55 refeuse to communicate. textNodes hold arrays of objects where if acted upon the foreach should react to each option. But I've been stuck with even showing
+Between this and bottom port console log must be in this order. Function will be filled with references to views models and utilites
+
+1. app.get('/biba', (req, res) => { (Index called and empty schma made here)})
+2. app.post('/biba', (req, res) => { })
+3. app.get('/biba/seed', (req,res) => {})
+4. app.get('/biba/new', function (req,res){ (New renderd here) })
+5. app.get('/biba/:id/edit', function(req, res){ (edit correction here)})
+6. app.get('/biba/:id', function(req, res){(show view)})
+7. app.delete('/biba/:id', function(req, res){(delete, redirect here})
+
+## JSX Skeleton ( Index, Edit, Show, New)
+const React = require('react')
+
+    class Index extends React.Component {
+      render() {
+          return (
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>CAFE</title>
+              <link rel="stylesheet" href="/CSS/indexstyle.css"></link>
+            </head>
+            <body>
+            <div className ='parent'>
+
+
+                  </div>
+            </body>
+            </html>
+
+          )
+      }
+    }
+    module.exports = Index
+
+- In each Jxs the react is required so t can be called and a class that the module can export it so make sure the names match up. Otherwise you can fill the return () with a html boilerplate the responts to the post which makes it able to appear in the browers online.
+---------------
+
+
+## Schema
+- model > honey.js ( this makes and empty object to be filled)
+- honey.js: 
+const mongoose = require('mongoose')
+const pastrySchema = new mongoose.Schema({ 
+    name: { type: String, required: true},
+    price:{type: Number, required: true},
+    text:{type: String, required: true},
+    total:{type: Number, required: true},
+    img:{type: String, required: false},
+})
+const Pastry = mongoose.model('Pastry', pastrySchema)
+ module.exports = Pastry
+
+- model > mongo :
+const mongoose = require('mongoose')
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:3003/biba', { useNewUrlParser: true })
+        .then(connect => console.log('connected to mongodb..'))
+        .catch(e => console.log('could not connect to mongodb', e))
+
+module.exports = {mongoose}
+
+ - (so mongo can be called)
+
+## Utilities
+- utilities > pastryData.js:
+const pastryData = [
+    {name: "Strawberry Cheesecake", price:5, total: 10, text:'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt magni aliquam beatae ea quae nihil excepturi est cupiditate earum nobis, voluptatem reprehenderit sapiente molestiae facilis labore rerum exercitationem id veritatis', img: "https://i.pinimg.com/originals/3e/53/b8/3e53b85ec1dfc96bc7e9dba3453ccd4b.gif"},
+    {name: "Cup Cake",  price:5, text:'Recipie', total: 10,img: "https://64.media.tumblr.com/074e8ff016883193ffe263b60eb801d1/tumblr_ncq0rwdjLx1snc5kxo1_500.gifv"},
+    {name: "Strawberry Roll", price:5, text:'Recipie', total: 10, img: "https://i.pinimg.com/originals/b1/65/60/b165600641ee446246745a9316ff7f1f.gif"},
+    {name: "Pudding", price:5, text:'Recipie', total: 10, img: "https://thumbs.gfycat.com/IncomparableOrangeAlbertosaurus-size_restricted.gif"},
+ ]
+
+ module.exports = pastryData
+
+- ( this is information that would already exist, you can update the url and information how you see fit.)
+
+## CSS
+
+- Index WireFrame
+
+![](public/images/wireframe.jpg)
+
+- Show wireframe
+![](public/images/wireframe2.jpg)
+
+- Edit / New reference
+
+![](public/images/wireframe3.jpg)
 
 ---------
-## Goals
+## Goals / Lessons / Thank Yous~
 ---------
-I will make a function storing the selections that hold value. For example: if user makes the right choice you gain a part and get 10 more robot strength. Otherwise it would show you loose 10 robot strength from either a bad trade or loss. I hope to display inventory as well as the percentage. Hopefully if I get all of this to work items may go missing from a character who steals them. Then at the end you chose to fight with whatever percentage strength you robot is. For now im not including firepower and assuming both is at an equal fire power. ( may use space battle for help.)
+This project was very difficult, but now knowing that I'm capable to have a functioning website from scratch is a skill I never thought I would ever be. The goal is to touch up the format, art, and stylize the buttons. Also I aim to simply organize the syntax and find a way to make the process as simple as it gets. All in all, I've learned pacitence and comradery. I'm so greatful to have such a friendly class and intuitive professor and assistant. Excited for more to learn.
